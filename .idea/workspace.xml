@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e27f7a4d-5694-4b8d-870f-ed7233cc1d4f" name="Changes" comment="">
+    <list default="true" id="e27f7a4d-5694-4b8d-870f-ed7233cc1d4f" name="Changes" comment="oke">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Service/DepartmentService/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/DepartmentService/DepartmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Service/EmployeeService/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/EmployeeService/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/EmployeeService/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/EmployeeService/IEmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/Validation/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/Validation/Validate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +55,19 @@
       <option name="presentableId" value="Default" />
       <updated>1679381208762</updated>
     </task>
+    <task id="LOCAL-00001" summary="oke">
+      <created>1679385645130</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679385645130</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="oke" />
+    <option name="LAST_COMMIT_MESSAGE" value="oke" />
   </component>
 </project>

@@ -1,6 +1,5 @@
 package Service.EmployeeService;
-
-import DAO.DepartmentDAO.DepartmentDAO;
+;
 import DAO.EmployeeDAO.EmployeeDAO;
 import Modal.Employees;
 import Service.DepartmentService.DepartmentService;
@@ -17,7 +16,6 @@ import static Service.Validation.Validate.*;
 public class EmployeeService implements IEmployeeService {
     public static Scanner scanner = new Scanner(System.in);
     static DepartmentService departmentService = new DepartmentService();
-    public static DepartmentDAO departmentDAO;
     public static Employees inputValue() throws ParseException {
         System.out.println("Enter employee code: ");
         String employeeCode = scanner.nextLine();

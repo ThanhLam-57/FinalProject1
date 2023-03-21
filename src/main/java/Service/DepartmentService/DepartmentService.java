@@ -6,9 +6,28 @@ import Modal.Department;
 import java.util.List;
 import java.util.Scanner;
 
+import static Service.Validation.Validate.validateNotNull;
+
 public class DepartmentService implements IDepartmentService{
     public static  Scanner scanner = new Scanner(System.in);
     public DepartmentDAO departmentDAO;
+    public static Department inputValue() {
+        System.out.println("Enter department code: ");
+        String departmentCode = scanner.nextLine();
+        while (validateNotNull(departmentCode) == false){
+            System.out.println("Department code is not null, enter again: ");
+            departmentCode = scanner.nextLine();
+        }
+        System.out.println("Enter department name: ");
+        String departmentName = scanner.nextLine();
+        while (validateNotNull(departmentName) == false){
+            System.out.println("Department name is not null, enter again: ");
+            departmentName = scanner.nextLine();
+        }
+        Department department = new Department(departmentCode, departmentName);
+        return department;
+    }
+
     //TODO1: Create a method to get all departments
     public void getAllDepartments() {
         List<Department> departments = departmentDAO.getAllDepartment();
@@ -39,12 +58,7 @@ public class DepartmentService implements IDepartmentService{
         if(department == null){
             System.out.println("Department not found");
         } else {
-            System.out.println("Enter department code: ");
-            String departmentCode = scanner.nextLine();
-            System.out.println("Enter department name: ");
-            String departmentName = scanner.nextLine();
-            department.setDepartment_code(departmentCode);
-            department.setDepartment_name(departmentName);
+            department = inputValue();
             departmentDAO.updateDepartment(department);
             System.out.println("Update department successfully");
         }
@@ -63,11 +77,7 @@ public class DepartmentService implements IDepartmentService{
     }
     //TODO5: Create a method to create a department
     public void createDepartment() {
-        System.out.println("Enter department code: ");
-        String departmentCode = scanner.nextLine();
-        System.out.println("Enter department name: ");
-        String departmentName = scanner.nextLine();
-        Department department = new Department(departmentCode, departmentName);
+        Department department = inputValue();
         departmentDAO.insertDepartment(department);
         System.out.println("Create department successfully");
     }
