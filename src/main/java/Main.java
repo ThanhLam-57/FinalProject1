@@ -5,6 +5,8 @@ import Service.LoginService.LogInService;
 import java.text.ParseException;
 import java.util.Scanner;
 
+import static Service.Validation.Validate.checkNull;
+
 public class Main {
     public static void main(String[] args) throws ParseException {
         LogInService logInService = new LogInService();

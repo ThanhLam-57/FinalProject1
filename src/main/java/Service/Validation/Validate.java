@@ -15,11 +15,9 @@ public class Validate {
     }
     public static boolean isNumeric(String string) {
         int intValue;
-
-        System.out.println(String.format("Parsing string: \"%s\"", string));
+        string = string.trim();
 
         if(string == null || string.equals("")) {
-            System.out.println("String cannot be parsed, it is null or empty.");
             return false;
         }
 
@@ -27,9 +25,8 @@ public class Validate {
             intValue = Integer.parseInt(string);
             return true;
         } catch (NumberFormatException e) {
-            System.out.println("Input String cannot be parsed to Integer.");
+            return false;
         }
-        return false;
     }
     public static boolean validateDate(String dateStr){
         Matcher matcher = VALID_DATE_REGEX.matcher(dateStr);
@@ -38,5 +35,24 @@ public class Validate {
     public static boolean validateNotNull(String str){
         Matcher matcher = VALID_NOT_EMPTY_REGEX.matcher(str);
         return matcher.matches();
+    }
+    public static String checkNull(String str){
+        str = str.trim();
+        if (str == null || str.equals("")){
+            return "NULL";
+        }
+        return str;
+    }
+    public static boolean validateGender(String gender){
+        String male = "nam" ;
+        String female = "nữ";
+        String other = "khác";
+        gender = gender.trim();
+        gender = gender.toLowerCase();
+        if (male.equals(gender) == true || female.equals(gender) == true || other.equals(gender) == true){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

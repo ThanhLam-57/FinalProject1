@@ -71,4 +71,12 @@ public class DepartmentService implements IDepartmentService{
         departmentDAO.insertDepartment(department);
         System.out.println("Create department successfully");
     }
+    public boolean checkDepartmentId(int departmentId){
+        Department department = departmentDAO.getDepartmentById(departmentId);
+        if(department == null){
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

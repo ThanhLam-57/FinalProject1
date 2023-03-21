@@ -1,5 +1,6 @@
 package Service.EmployeeService;
 
+import DAO.DepartmentDAO.DepartmentDAO;
 import DAO.EmployeeDAO.EmployeeDAO;
 import Modal.Employees;
 import Service.DepartmentService.DepartmentService;
@@ -15,7 +16,8 @@ import static Service.Validation.Validate.*;
 
 public class EmployeeService implements IEmployeeService {
     public static Scanner scanner = new Scanner(System.in);
-    DepartmentService departmentService = new DepartmentService();
+    static DepartmentService departmentService = new DepartmentService();
+    public static DepartmentDAO departmentDAO;
     public static Employees inputValue() throws ParseException {
         System.out.println("Enter employee code: ");
         String employeeCode = scanner.nextLine();
@@ -29,14 +31,18 @@ public class EmployeeService implements IEmployeeService {
             System.out.println("Tên nhân viên không được để trống, nhập lại: ");
             employeeName = scanner.nextLine();
         }
-        System.out.println("Enter employee date of birth: ");
+        System.out.println("Enter employee date of birth(yyyy-MM-dd): ");
         String employeeDateOfBirth = scanner.nextLine();
         while (validateDate(employeeDateOfBirth) == false){
             System.out.println("Ngày sinh chưa hợp lệ, nhập lại: ");
             employeeDateOfBirth = scanner.nextLine();
         }
-        System.out.println("Enter employee gender: ");
+        System.out.println("Enter employee gender(nam/ nữ/ khác): ");
         String employeeGender = scanner.nextLine();
+        while (validateGender(employeeGender) == false){
+            System.out.println("Giới tính chưa hợp lệ, nhập lại: ");
+            employeeGender = scanner.nextLine();
+        }
         System.out.println("Enter employee address: ");
         String employeeAddress = scanner.nextLine();
         System.out.println("Enter employee phone (10 số): ");
@@ -58,8 +64,14 @@ public class EmployeeService implements IEmployeeService {
             employeeSalary = scanner.nextLine();
         }
         Integer employeeSalary1 = Integer.parseInt(employeeSalary);
+
         System.out.println("Enter employee department id: ");
+        departmentService.getAllDepartments();
         Integer employeeDepartmentId = Integer.parseInt(scanner.nextLine());
+        while (departmentService.checkDepartmentId(employeeDepartmentId) == false){
+            System.out.println("Mã phòng ban không tồn tại, nhập lại: ");
+            employeeDepartmentId = Integer.parseInt(scanner.nextLine());
+        }
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date date = df.parse(employeeDateOfBirth);
         Employees employees1 = new Employees(employeeCode,employeeName,date,employeeGender,employeeAddress,employeePhone,employeeEmail,employeeSalary1,employeeDepartmentId);
@@ -95,28 +107,6 @@ public class EmployeeService implements IEmployeeService {
         if (employees == null) {
             System.out.println("Employee not found");
         }else {
-//            System.out.println("Enter employee code: ");
-//            String employeeCode = scanner.nextLine();
-//            System.out.println("Enter employee name: ");
-//            String employeeName = scanner.nextLine();
-//            System.out.println("Enter employee date of bỉth: ");
-//            String employeeDateOfBirth = scanner.nextLine();
-//            System.out.println("Enter employee gender: ");
-//            String employeeGender = scanner.nextLine();
-//            System.out.println("Enter employee address: ");
-//            String employeeAddress = scanner.nextLine();
-//            System.out.println("Enter employee phone: ");
-//            String employeePhone = scanner.nextLine();
-//            System.out.println("Enter employee email: ");
-//            String employeeEmail = scanner.nextLine();
-//            System.out.println("Enter employee salary: ");
-//            Integer employeeSalary = Integer.parseInt(scanner.nextLine());
-//            System.out.println("Enter employee department id: ");
-//            Integer employeeDepartmentId = Integer.parseInt(scanner.nextLine());
-//            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//            Date date = df.parse(employeeDateOfBirth);
-//
-//            Employees employees1 = new Employees(employeeCode,employeeName,date,employeeGender,employeeAddress,employeePhone,employeeEmail,employeeSalary,employeeDepartmentId);
             Employees employees1 = inputValue();
             employeeDAO.updateEmployee(employeeId,employees1);
         }
@@ -137,28 +127,6 @@ public class EmployeeService implements IEmployeeService {
     //TODO: Create a method create an employee
     @Override
     public void createEmployee() throws ParseException {
-//        System.out.println("Enter employee code: ");
-//        String employeeCode = scanner.nextLine();
-//        System.out.println("Enter employee name: ");
-//        String employeeName = scanner.nextLine();
-//        System.out.println("Enter employee date of bỉth: ");
-//        String employeeDateOfBirth = scanner.nextLine();
-//        System.out.println("Enter employee gender: ");
-//        String employeeGender = scanner.nextLine();
-//        System.out.println("Enter employee address: ");
-//        String employeeAddress = scanner.nextLine();
-//        System.out.println("Enter employee phone: ");
-//        String employeePhone = scanner.nextLine();
-//        System.out.println("Enter employee email: ");
-//        String employeeEmail = scanner.nextLine();
-//        System.out.println("Enter employee salary: ");
-//        Integer employeeSalary = Integer.parseInt(scanner.nextLine());
-//        System.out.println("Enter employee department id: ");
-//        Integer employeeDepartmentId = Integer.parseInt(scanner.nextLine());
-//        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//        Date date = df.parse(employeeDateOfBirth);
-//
-//        Employees employees = new Employees(employeeCode,employeeName,date,employeeGender,employeeAddress,employeePhone,employeeEmail,employeeSalary,employeeDepartmentId);
         Employees employees = inputValue();
         employeeDAO.insertEmployee(employees);
         System.out.println("Create employee successfully");

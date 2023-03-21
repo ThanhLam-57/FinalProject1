@@ -1,5 +1,7 @@
 package Service.EmployeeService;
 
+import Modal.Employees;
+
 import java.text.ParseException;
 
 public interface IEmployeeService {
