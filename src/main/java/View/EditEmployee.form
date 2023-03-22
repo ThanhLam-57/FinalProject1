@@ -208,6 +208,9 @@
           <Dimension value="[300, 30]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmpDepartmentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EditEmployee">
       <Properties>
@@ -243,7 +246,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh"/>
+        <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh(yyyy-MM-dd)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -263,7 +266,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
+        <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i (10 s&#x1ed1;)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">

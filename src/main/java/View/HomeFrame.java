@@ -55,7 +55,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        transferEmployee = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
@@ -73,6 +73,8 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         btnEditDepartment = new javax.swing.JButton();
         btnDeleteDepartment = new javax.swing.JButton();
         btnLoadDataDepartment = new javax.swing.JButton();
+        jTabbedPane4 = new javax.swing.JTabbedPane();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,6 +133,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             }
         });
 
+        cbbDepartment.setPreferredSize(new java.awt.Dimension(72, 30));
         cbbDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbbDepartmentActionPerformed(evt);
@@ -179,7 +182,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
                 .addContainerGap(85, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Quản lý nhân viên", jPanel3);
+        transferEmployee.addTab("Quản lý nhân viên", jPanel3);
 
         tblDepartment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -238,9 +241,11 @@ public class HomeFrame extends javax.swing.JFrame implements View{
                 .addGap(0, 103, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Quản lý phòng ban", jPanel4);
+        transferEmployee.addTab("Quản lý phòng ban", jPanel4);
+        transferEmployee.addTab("Luân chuyển nhân sự", jTabbedPane4);
 
-        jTabbedPane1.addTab("tab2", jTabbedPane2);
+        jTabbedPane1.addTab("Hr Manager", transferEmployee);
+        jTabbedPane1.addTab("Giới thiệu nhóm", jTabbedPane3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -384,9 +389,11 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable tblDepartment;
     private javax.swing.JTable tblEmployee;
+    private javax.swing.JTabbedPane transferEmployee;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 

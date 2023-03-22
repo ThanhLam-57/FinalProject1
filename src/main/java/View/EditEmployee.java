@@ -96,6 +96,11 @@ public class EditEmployee extends javax.swing.JDialog {
         });
 
         txtEmpDepartment.setPreferredSize(new java.awt.Dimension(300, 30));
+        txtEmpDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmpDepartmentActionPerformed(evt);
+            }
+        });
 
         EditEmployee.setText("Sửa thông tin");
         EditEmployee.setPreferredSize(new java.awt.Dimension(120, 30));
@@ -117,7 +122,7 @@ public class EditEmployee extends javax.swing.JDialog {
 
         jLabel2.setText("Tên nhân viên");
 
-        jLabel3.setText("Ngày sinh");
+        jLabel3.setText("Ngày sinh(yyyy-MM-dd)");
 
         jLabel4.setText("Giới tính");
 
@@ -125,7 +130,7 @@ public class EditEmployee extends javax.swing.JDialog {
 
         jLabel6.setText("Email");
 
-        jLabel7.setText("Số điện thoại");
+        jLabel7.setText("Số điện thoại (10 số)");
 
         jLabel8.setText("Lương");
 
@@ -311,6 +316,10 @@ public class EditEmployee extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSalaryActionPerformed
 
+    private void txtEmpDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpDepartmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmpDepartmentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -392,6 +401,6 @@ public class EditEmployee extends javax.swing.JDialog {
         txtEmail.setText(s.getEmail());
         txtSalary.setText(String.valueOf(s.getSalary()));
         txtEmpDepartment.setText(String.valueOf(s.getDepartment_id()));
-        
+        txtEmpDepartment.setEditable(false);
     }
 }
