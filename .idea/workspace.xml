@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e27f7a4d-5694-4b8d-870f-ed7233cc1d4f" name="Changes" comment="oke">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Service/Validation/FormatValidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/AskDelete.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/AskDelete.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/LoginFrame.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/DepartmentDAO/DepartmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/DepartmentDAO/DepartmentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modal/Employees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modal/Employees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/EmployeeService/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/EmployeeService/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/Validation/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/Validation/Validate.java" afterDir="false" />
-    </list>
+    <list default="true" id="e27f7a4d-5694-4b8d-870f-ed7233cc1d4f" name="Changes" comment="oke" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679389509222</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="oke">
+      <created>1679470711480</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679470711480</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
