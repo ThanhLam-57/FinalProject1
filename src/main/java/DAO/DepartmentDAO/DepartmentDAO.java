@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DepartmentDAO {
     //Done
-    public static void insertDepartment(Department department){
+    public static boolean insertDepartment(Department department){
         Connection conn= null;
         PreparedStatement prst = null;
         try {
@@ -19,8 +19,10 @@ public class DepartmentDAO {
             prst.setString(1, department.getDepartment_code());
             prst.setString(2, department.getDepartment_name());
             prst.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         } finally {
             try {
                 if (prst != null) {

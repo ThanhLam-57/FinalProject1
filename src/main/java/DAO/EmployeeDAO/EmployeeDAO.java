@@ -39,6 +39,35 @@ public class EmployeeDAO {
         return employees;
     }
 
+    public static List<Employees> getEmployeeByDepartment(int id){
+        List<Employees> employees = new ArrayList<>();
+        Connection conn = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM employee e WHERE e.department_id = " + id + ";";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Employees employee = new Employees();
+                employee.setEmployee_id(rs.getInt("employee_id"));
+                employee.setEmployee_code(rs.getString("employee_code"));
+                employee.setEmployee_name(rs.getString("employee_name"));
+                employee.setDate_of_birth(rs.getDate("date_of_birth"));
+                employee.setGender(rs.getString("gender"));
+                employee.setAddress(rs.getString("address"));
+                employee.setPhone(rs.getString("phone"));
+                employee.setEmail(rs.getString("email"));
+                employee.setSalary(rs.getInt("salary"));
+                employee.setDepartment_id(rs.getInt("department_id"));
+                employee.setNamager_id(rs.getInt("manager_id"));
+                employees.add(employee);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return employees;
+    }
+
     //Create method to get employee by id
     //Done
     public static Employees showEmployeeById(int id){
@@ -85,7 +114,7 @@ public class EmployeeDAO {
 
     //Create method to add new employee
     //Done
-    public static Employees insertEmployee(Employees employee){
+    public static boolean insertEmployee(Employees employee){
         Connection conn = null;
         PreparedStatement prst = null;
         try {
@@ -102,10 +131,20 @@ public class EmployeeDAO {
             prst.setString(5,employee.getAddress());
             prst.setString(6,employee.getPhone());
             prst.setString(7,employee.getEmail());
-            prst.setInt(8,employee.getSalary());
-            prst.setInt(9,employee.getDepartment_id());
+            if (employee.getSalary() == 0){
+                prst.setNull(8, Types.INTEGER);
+            } else {
+                prst.setInt(8,employee.getSalary());
+            }
+//            prst.setInt(8,employee.getSalary());
+            if (employee.getDepartment_id() == 0){
+                prst.setNull(9, Types.INTEGER);
+            } else {
+                prst.setInt(9,employee.getDepartment_id());
+            }
+//            prst.setInt(9,employee.getDepartment_id());
             prst.executeUpdate();
-            return null;
+            return true;
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         } finally {
@@ -127,7 +166,7 @@ public class EmployeeDAO {
     }
 
     //Create method to update employee
-    public static Employees updateEmployee(int id, Employees employees){
+    public static boolean updateEmployee(int id, Employees employees){
         Connection conn = null;
         PreparedStatement prst = null;
         try {
@@ -142,11 +181,21 @@ public class EmployeeDAO {
             prst.setString(5, employees.getAddress());
             prst.setString(6, employees.getPhone());
             prst.setString(7, employees.getEmail());
-            prst.setInt(8, employees.getSalary());
-            prst.setInt(9, employees.getDepartment_id());
+            if (employees.getSalary() == 0){
+                prst.setNull(8, Types.INTEGER);
+            } else {
+                prst.setInt(8, employees.getSalary());
+            }
+//            prst.setInt(8, employees.getSalary());
+            if (employees.getDepartment_id() == 0){
+                prst.setNull(9, Types.INTEGER);
+            } else {
+                prst.setInt(9, employees.getDepartment_id());
+            }
+//            prst.setInt(9, employees.getDepartment_id());
             prst.setInt(10, id);
             prst.executeUpdate();
-            return null;
+            return true;
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         } finally {
@@ -168,7 +217,7 @@ public class EmployeeDAO {
     }
 
     //Create method to delete employee
-    public static Employees deleteEmployee(int id) {
+    public static boolean deleteEmployee(int id) {
         Connection conn = null;
         PreparedStatement prst = null;
         try {
@@ -177,7 +226,7 @@ public class EmployeeDAO {
             prst = conn.prepareStatement(sql);
             prst.setInt(1, id);
             prst.executeUpdate();
-            return null;
+            return true;
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         } finally {
@@ -338,4 +387,21 @@ public class EmployeeDAO {
             }
         }
     }
+
+    public static boolean checkEmployeeCode(String employeeCode){
+        Connection conn = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM employee WHERE employee_code = '"+employeeCode+"';";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+
 }

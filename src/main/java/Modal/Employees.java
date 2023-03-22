@@ -4,6 +4,10 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Employees {
+
+    public static Object get(int selectedIndex) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private int employee_id;
     private String employee_code;
     private String employee_name;
@@ -14,9 +18,41 @@ public class Employees {
     private String email;
     private int salary;
     private int department_id;
+    private  String department_name;
     private int namager_id;
 
+    private String manager_name;
     public Employees() {
+    }
+
+    public String getDepartment_name() {
+        return department_name;
+    }
+
+    public void setDepartment_name(String department_name) {
+        this.department_name = department_name;
+    }
+
+    public String getManager_name() {
+        return manager_name;
+    }
+
+    public void setManager_name(String manager_name) {
+        this.manager_name = manager_name;
+    }
+
+    public Employees(int employee_id, String employee_code, String employee_name, Date date_of_birth, String gender, String address, String phone, String email, int salary, String department_name, String manager_name) {
+        this.employee_id = employee_id;
+        this.employee_code = employee_code;
+        this.employee_name = employee_name;
+        this.date_of_birth = date_of_birth;
+        this.gender = gender;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.salary = salary;
+        this.department_name = department_name;
+        this.manager_name = manager_name;
     }
 
     public Employees(int employee_id, String employee_code, String employee_name, Date date_of_birth, String gender, String address, String phone, String email, int salary, int department_id, int namager_id) {

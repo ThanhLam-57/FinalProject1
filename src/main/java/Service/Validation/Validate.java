@@ -33,8 +33,11 @@ public class Validate {
         return matcher.matches();
     }
     public static boolean validateNotNull(String str){
-        Matcher matcher = VALID_NOT_EMPTY_REGEX.matcher(str);
-        return matcher.matches();
+        str = str.trim();
+        if (str == null || str.equals("")){
+            return false;
+        }
+        return true;
     }
     public static String checkNull(String str){
         str = str.trim();
