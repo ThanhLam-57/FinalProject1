@@ -6,10 +6,18 @@ import static Common.Common.*;
 
 public class Validate {
     public static boolean validateEmail(String emailStr) {
+        emailStr = emailStr.trim();
+        if (emailStr.equals("") == true){
+            return true;
+        }
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.matches();
     }
     public static boolean validatePhone(String phoneStr){
+        phoneStr = phoneStr.trim();
+        if (phoneStr.equals("")== true){
+            return true;
+        }
         Matcher matcher = VALID_PHONE_REGEX.matcher(phoneStr);
         return matcher.matches();
     }
@@ -54,7 +62,9 @@ public class Validate {
         gender = gender.toLowerCase();
         if (male.equals(gender) == true || female.equals(gender) == true || other.equals(gender) == true){
             return true;
-        }else {
+        } else if (gender.equals("") == true) {
+            return true;
+        } else {
             return false;
         }
     }

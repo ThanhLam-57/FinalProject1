@@ -7,6 +7,7 @@ package View;
 import DAO.EmployeeDAO.EmployeeDAO;
 import Modal.Employees;
 
+import static DAO.EmployeeDAO.EmployeeDAO.checkEmployeeCode;
 import static Service.Validation.FormatValidate.formatInteger;
 import static Service.Validation.Validate.validateDate;
 import static Service.Validation.Validate.validateNotNull;
@@ -118,11 +119,11 @@ public class EditEmployee extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Mã nhân viên");
+        jLabel1.setText("Mã nhân viên (*)");
 
-        jLabel2.setText("Tên nhân viên");
+        jLabel2.setText("Tên nhân viên(*)");
 
-        jLabel3.setText("Ngày sinh(yyyy-MM-dd)");
+        jLabel3.setText("Ngày sinh(yyyy-MM-dd) (*)");
 
         jLabel4.setText("Giới tính");
 
@@ -140,7 +141,7 @@ public class EditEmployee extends javax.swing.JDialog {
         jLabel10.setText("Sửa thông tin nhân viên");
         jLabel10.setPreferredSize(new java.awt.Dimension(126, 30));
 
-        jLabel11.setText("ID nhân viên");
+        jLabel11.setText("ID nhân viên ");
 
         txtIDEmployee.setEditable(false);
         txtIDEmployee.setPreferredSize(new java.awt.Dimension(300, 30));
@@ -267,19 +268,19 @@ public class EditEmployee extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(rootPane, "Tên nhân viên không được để trống");
                 isOK = false;
             }
-            if(dob == null && validateDate(dob)== false){
+            if(dob.equals("") == true || dob == null || validateDate(dob) == false){
                 JOptionPane.showMessageDialog(rootPane, "Ngày sinh không hợp lệ");
                 isOK = false;
             }
-            if (gen == null && validateGender(gen) == false) {
+            if (validateGender(gen) == false) {
                 JOptionPane.showMessageDialog(rootPane, "Giới tính không hợp lệ");
                 isOK = false;
             }
-            if (phone == null && validatePhone(phone) == false) {
+            if (validatePhone(phone) == false) {
                 JOptionPane.showMessageDialog(rootPane, "Số điện thoại sinh không hợp lệ");
                 isOK = false;
             }
-            if (email == null && validateEmail(email) == false) {
+            if (validateEmail(email) == false) {
                 JOptionPane.showMessageDialog(rootPane, "Email không hợp lệ");
                 isOK = false;
             }
@@ -289,12 +290,10 @@ public class EditEmployee extends javax.swing.JDialog {
             }
             Integer salary1 = formatInteger(salary);
             Integer employeeDepartmentId = formatInteger(departmentEmp);
-//            Integer salary1 = Integer.parseInt(salary);
-//            Integer employeeDepartmentId = Integer.parseInt(departmentEmp);
             Integer employeeID = Integer.parseInt(empID);
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = df.parse(dob);
             if (isOK) {
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = df.parse(dob);
                 Employees employees1 = new Employees(empCode,empName,date,gen,addr,phone,email,salary1,employeeDepartmentId);
                 boolean check = employeeDAO.updateEmployee(employeeID, employees1);
                 if (check == true) {

@@ -236,17 +236,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="M&#xe3; nh&#xe2;n vi&#xea;n"/>
+        <Property name="text" type="java.lang.String" value="M&#xe3; nh&#xe2;n vi&#xea;n (*)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
+        <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n(*)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh(yyyy-MM-dd)"/>
+        <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh(yyyy-MM-dd) (*)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -292,7 +292,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ID nh&#xe2;n vi&#xea;n"/>
+        <Property name="text" type="java.lang.String" value="ID nh&#xe2;n vi&#xea;n "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIDEmployee">

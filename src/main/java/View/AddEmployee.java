@@ -111,11 +111,11 @@ public class AddEmployee extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Mã nhân viên");
+        jLabel1.setText("Mã nhân viên(*)");
 
-        jLabel2.setText("Tên nhân viên");
+        jLabel2.setText("Tên nhân viên(*)");
 
-        jLabel3.setText("Ngày sinh");
+        jLabel3.setText("Ngày sinh(*)");
 
         jLabel4.setText("Giới tính");
 
@@ -240,19 +240,19 @@ public class AddEmployee extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(rootPane, "Tên nhân viên không được để trống");
                 isOK = false;
             }
-            if(dob == null && validateDate(dob)== false){
+            if(dob.equals("") == true || dob == null || validateDate(dob) == false){
                 JOptionPane.showMessageDialog(rootPane, "Ngày sinh không hợp lệ");
                 isOK = false;
             }
-            if (gen == null && validateGender(gen) == false) {
+            if (validateGender(gen) == false) {
                 JOptionPane.showMessageDialog(rootPane, "Giới tính không hợp lệ");
                 isOK = false;
             }
-            if (phone == null && validatePhone(phone) == false) {
+            if (validatePhone(phone) == false) {
                 JOptionPane.showMessageDialog(rootPane, "Số điện thoại sinh không hợp lệ");
                 isOK = false;
             }
-            if (email == null && validateEmail(email) == false) {
+            if (validateEmail(email) == false) {
                 JOptionPane.showMessageDialog(rootPane, "Email không hợp lệ");
                 isOK = false;
             }
@@ -262,9 +262,9 @@ public class AddEmployee extends javax.swing.JDialog {
             }
             Integer salary1 = formatInteger(salary);
             Integer employeeDepartmentId = formatInteger(departmentEmp);
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = df.parse(dob);
             if (isOK) {
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = df.parse(dob);
                 Employees employees1 = new Employees(empCode,empName,date,gen,addr,phone,email,salary1,employeeDepartmentId);
                 boolean check = employeeDAO.insertEmployee(employees1);
                 if (check == true) {
