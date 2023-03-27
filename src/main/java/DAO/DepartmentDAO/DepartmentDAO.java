@@ -44,7 +44,7 @@ public class DepartmentDAO {
         PreparedStatement prst = null;
         try {
             conn = Connect.getInstance().getConnection();
-            String sql = "SELECT * FROM department";
+            String sql = "SELECT * FROM department where isDeleteDep = 1";
             prst = conn.prepareStatement(sql);
             java.sql.ResultSet rs = prst.executeQuery();
             while (rs.next()){
@@ -110,7 +110,7 @@ public class DepartmentDAO {
     }
 
     //Done
-    public static Department updateDepartment(Department department){
+    public static boolean updateDepartment(Department department){
         Connection conn= null;
         PreparedStatement prst = null;
         try {
@@ -121,6 +121,7 @@ public class DepartmentDAO {
             prst.setString(2, department.getDepartment_name());
             prst.setInt(3, department.getDepartment_id());
             prst.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -135,19 +136,23 @@ public class DepartmentDAO {
                 e.printStackTrace();
             }
         }
-        return department;
+        return false;
     }
 
     //Done
-    public static void deleteDepartment(int department_id){
+    public static boolean deleteDepartment(int department_id){
         Connection conn= null;
         PreparedStatement prst = null;
+        PreparedStatement prst1 = null;
         try {
             conn = Connect.getConnection();
-            String sql = "DELETE FROM department WHERE department_id = ?";
+            String sql = "UPDATE employee e SET e.department_id = NULL, e.manager_id = NULL WHERE e.department_id = "+department_id+";";
+            String sql1 = "UPDATE department d SET d.isDeleteDep = 0 WHERE d.department_id = "+department_id+";";
             prst = conn.prepareStatement(sql);
-            prst.setInt(1, department_id);
             prst.executeUpdate();
+            prst1 = conn.prepareStatement(sql1);
+            prst1.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -162,5 +167,6 @@ public class DepartmentDAO {
                 e.printStackTrace();
             }
         }
+        return false;
     }
 }

@@ -29,6 +29,8 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     public DepartmentDAO departmentDAO;
     List<Employees> employeeses = employeeDAO.getAllEmployees();
     List<Department> departments = departmentDAO.getAllDepartment();
+    List<Employees> listEmployeeisDelete = employeeDAO.getAllEmployeesDelete();
+
     List<String> listDepartment = new ArrayList<>();
 
     List<Employees> listTransferEmployee = new ArrayList<>();
@@ -96,6 +98,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         cbbDepartment2 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
 
@@ -225,8 +228,18 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         });
 
         btnEditDepartment.setText("Sửa thông tin phòng ban");
+        btnEditDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditDepartmentActionPerformed(evt);
+            }
+        });
 
         btnDeleteDepartment.setText("Xoá phòng ban");
+        btnDeleteDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteDepartmentActionPerformed(evt);
+            }
+        });
 
         btnLoadDataDepartment.setText("Load lại dữ liệu");
         btnLoadDataDepartment.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +299,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang làm", "Nghỉ việc" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chọn", "Nghỉ việc", "Chưa có phòng ban" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -331,6 +344,14 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             }
         });
 
+        jButton4.setText("Đi làm trở lại");
+        jButton4.setPreferredSize(new java.awt.Dimension(97, 30));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -343,54 +364,52 @@ public class HomeFrame extends javax.swing.JFrame implements View{
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(cbbDepartment1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbbDepartment2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbbDepartment1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbbDepartment2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonTransferEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addGap(131, 131, 131)
                         .addComponent(jButton3)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonTransferEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbbDepartment1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbbDepartment2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonTransferEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbbDepartment1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbDepartment2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92))
         );
 
         transferEmployee.addTab("Nhân sự", jPanel1);
@@ -428,50 +447,28 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     private void cbbDepartment1ActionPerformed(ActionEvent evt) {
         int index = cbbDepartment1.getSelectedIndex();
         String selectValue = cbbDepartment1.getSelectedItem().toString();
-        int  indexOptionEMp = jComboBox2.getSelectedIndex();
         int isDelete = 1;
         if (selectValue.equals("Tất cả")) {
-            if(indexOptionEMp == 0){
-                isDelete = 1;
-            }else if(indexOptionEMp == 1){
-                isDelete = 0;
-            }
             this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(0,isDelete), modelTableTrabsferEmployee);
             listTransferEmployee = employeeDAO.getEmployeeByDepartment(0,isDelete);
         }
         if(index>= 1){
-            if(indexOptionEMp == 0){
-                isDelete = 1;
-            }else if(indexOptionEMp == 1){
-                isDelete = 0;
-            }
             this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(departments.get(index-1).getDepartment_id(),isDelete), modelTableTrabsferEmployee);
             listTransferEmployee = employeeDAO.getEmployeeByDepartment(departments.get(index-1).getDepartment_id(),isDelete);
         }
     }
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {
-        int index = cbbDepartment1.getSelectedIndex();
-        String selectValue = cbbDepartment1.getSelectedItem().toString();
         int  indexOptionEMp = jComboBox2.getSelectedIndex();
-        int isDelete = 1;
-        if (selectValue.equals("Tất cả")) {
-            if(indexOptionEMp == 0){
-                isDelete = 1;
-            }else if(indexOptionEMp == 1){
-                isDelete = 0;
-            }
-            this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(0,isDelete), modelTableTrabsferEmployee);
-            listTransferEmployee = employeeDAO.getEmployeeByDepartment(0,isDelete);
-        }
-        if(index>= 1){
-            if(indexOptionEMp == 0){
-                isDelete = 1;
-            }else if(indexOptionEMp == 1){
-                isDelete = 0;
-            }
-            this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(departments.get(index-1).getDepartment_id(),isDelete), modelTableTrabsferEmployee);
-            listTransferEmployee = employeeDAO.getEmployeeByDepartment(departments.get(index-1).getDepartment_id(),isDelete);
+        if (indexOptionEMp == 0) {
+            this.showOptionTransferEmp(employeeDAO.getAllEmployees(), modelTableTrabsferEmployee);
+            listTransferEmployee = employeeDAO.getAllEmployees();
+        } else if (indexOptionEMp == 1) {
+            this.showOptionTransferEmp(employeeDAO.getAllEmployeesDelete(), modelTableTrabsferEmployee);
+            listTransferEmployee = employeeDAO.getAllEmployeesDelete();
+        } else if (indexOptionEMp == 2) {
+            this.showOptionTransferEmp(employeeDAO.getAllEmployeesNotDep(), modelTableTrabsferEmployee);
+            listTransferEmployee = employeeDAO.getAllEmployeesNotDep();
         }
     }
 
@@ -519,6 +516,76 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbDepartment2ActionPerformed
 
+    private void btnEditDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDepartmentActionPerformed
+        int selectedItem = tblDepartment.getSelectedRow();
+        if(departments.size()==0){
+            JOptionPane.showMessageDialog(rootPane, "Không có phòng ban để sửa");
+        }else if(selectedItem == -1){
+            JOptionPane.showMessageDialog(rootPane, "Chọn phòng ban để sửa");
+        }
+        else{
+            EditDepartment editDepartment = new EditDepartment(this, rootPaneCheckingEnabled);
+            editDepartment.setEditData(departmentDAO.getAllDepartment().get(selectedItem));
+            editDepartment.setVisible(true);
+            this.showDataDepartment(departmentDAO.getAllDepartment(), modelTableDepartment);
+        }
+    }//GEN-LAST:event_btnEditDepartmentActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        // set isDelete = 1 with employee_id
+//        int index = tblTransferEmployee.getSelectedRow();
+//        if(index == -1){
+//            JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên");
+//        }else{
+//            int id = listTransferEmployee.get(index).getEmployee_id();
+//            int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn cho nhân viên này đi làm không?");
+//            if(result == JOptionPane.YES_OPTION){
+//                if(employeeDAO.goBackToWork(id) == true){
+//                    JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+//                    this.showData(employeeDAO.getAllEmployees(), modelTableEmployee);
+//                }else{
+//                    JOptionPane.showMessageDialog(rootPane, "Thêm thất bại");
+//                }
+//            }
+//        }
+
+        //go back to work employee
+        int index = tblTransferEmployee.getSelectedRow();
+        if(index == -1){
+            JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên");
+        }else{
+            int id = listTransferEmployee.get(index).getEmployee_id();
+            int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn cho nhân viên này đi làm không?");
+            if(result == JOptionPane.YES_OPTION){
+                if(employeeDAO.goBackToWork(id) == true){
+                    JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+                    this.showData(employeeDAO.getAllEmployees(), modelTableEmployee);
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Thêm thất bại");
+                }
+            }
+        }
+    }
+
+    private void btnDeleteDepartmentActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        int index = tblDepartment.getSelectedRow();
+        if(index == -1){
+            JOptionPane.showMessageDialog(rootPane, "Chọn phòng ban để xoá");
+        }else{
+            int id = departments.get(index).getDepartment_id();
+            int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xoá phòng ban này không?");
+            if(result == JOptionPane.YES_OPTION){
+                if(departmentDAO.deleteDepartment(id)){
+                    JOptionPane.showMessageDialog(rootPane, "Xoá thành công");
+                    this.showDataDepartment(departmentDAO.getAllDepartment(), modelTableDepartment);
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Xoá thất bại");
+                }
+            }
+        }
+    }
+
 
     //TODO Xoá nhân viên khỏi phòng ban
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -546,6 +613,14 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         // TODO add your handling code here:
         //employee promotion
         int index = tblTransferEmployee.getSelectedRow();
+        if (listEmployeeisDelete.contains(listTransferEmployee.get(index)) == false){
+            JOptionPane.showMessageDialog(rootPane, "Không còn là nhân viên");
+            return;
+        }
+        if (listTransferEmployee.get(index).getDepartment_id() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Nhân viên này chưa có phòng ban");
+            return;
+        }
         if(index == -1){
             JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên để thăng chức");
         }else{
@@ -573,7 +648,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên để chuyển");
         }else{
             int id = listTransferEmployee.get(index).getEmployee_id();
-            int idDepartment = listTransferEmployee.get(indexOptionEmp1).getDepartment_id();
+            int idDepartment = listTransferEmployee.get(index).getDepartment_id();
             //CÒn sửa lại
             int idNewDepartment = departments.get(indexOptionEMp).getDepartment_id() ;
             if(idDepartment == idNewDepartment){
@@ -582,7 +657,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
                 int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc chuyển nhân viên này không?");
                 if(result == JOptionPane.YES_OPTION){
                     employeeDAO.transferEmployee(id, idNewDepartment);
-                    this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(idDepartment,1), modelTableTrabsferEmployee);
+                    this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(idNewDepartment,1), modelTableTrabsferEmployee);
                 }
             }
         }
@@ -679,6 +754,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonTransferEmp;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;

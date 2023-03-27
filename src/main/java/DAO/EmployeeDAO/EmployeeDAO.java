@@ -39,6 +39,64 @@ public class EmployeeDAO {
         return employees;
     }
 
+    public static List<Employees> getAllEmployeesNotDep(){
+        List<Employees> employees = new ArrayList<>();
+        Connection conn = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM employee WHERE department_id IS NULL AND isDelete = 1;";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Employees employee = new Employees();
+                employee.setEmployee_id(rs.getInt("employee_id"));
+                employee.setEmployee_code(rs.getString("employee_code"));
+                employee.setEmployee_name(rs.getString("employee_name"));
+                employee.setDate_of_birth(rs.getDate("date_of_birth"));
+                employee.setGender(rs.getString("gender"));
+                employee.setAddress(rs.getString("address"));
+                employee.setPhone(rs.getString("phone"));
+                employee.setEmail(rs.getString("email"));
+                employee.setSalary(rs.getInt("salary"));
+                employee.setDepartment_id(rs.getInt("department_id"));
+                employee.setNamager_id(rs.getInt("manager_id"));
+                employees.add(employee);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return employees;
+    }
+
+    public static List<Employees> getAllEmployeesDelete(){
+        List<Employees> employees = new ArrayList<>();
+        Connection conn = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM employee WHERE isDelete = 0;";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Employees employee = new Employees();
+                employee.setEmployee_id(rs.getInt("employee_id"));
+                employee.setEmployee_code(rs.getString("employee_code"));
+                employee.setEmployee_name(rs.getString("employee_name"));
+                employee.setDate_of_birth(rs.getDate("date_of_birth"));
+                employee.setGender(rs.getString("gender"));
+                employee.setAddress(rs.getString("address"));
+                employee.setPhone(rs.getString("phone"));
+                employee.setEmail(rs.getString("email"));
+                employee.setSalary(rs.getInt("salary"));
+                employee.setDepartment_id(rs.getInt("department_id"));
+                employee.setNamager_id(rs.getInt("manager_id"));
+                employees.add(employee);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return employees;
+    }
+
     public static List<Employees> getEmployeeByDepartment(int id, int isDelete) {
         List<Employees> employees = new ArrayList<>();
         Connection conn = null;
@@ -222,7 +280,7 @@ public class EmployeeDAO {
         PreparedStatement prst = null;
         try {
             conn = Connect.getInstance().getConnection();
-            String sql = "UPDATE employee e SET e.isDelete = 0, e.manager_id = NULL WHERE e.employee_id = ?;";
+            String sql = "UPDATE employee e SET e.isDelete = 0, e.manager_id = NULL, e.department_id = NULL WHERE e.employee_id = ?;";
             prst = conn.prepareStatement(sql);
             prst.setInt(1, id);
             prst.executeUpdate();
@@ -410,7 +468,7 @@ public class EmployeeDAO {
         PreparedStatement prst = null;
         try {
             conn = Connect.getInstance().getConnection();
-            String sql = "UPDATE employee e SET e.department_id = "+newDepartmentId+",e.isDelete = 0, e.manager_id = NULL WHERE e.employee_id = "+id+";";
+            String sql = "UPDATE employee e SET e.department_id = "+newDepartmentId+",e.isDelete = 1, e.manager_id = NULL WHERE e.employee_id = "+id+";";
             prst=conn.prepareStatement(sql);
             prst.executeUpdate();
         } catch (Exception ex) {
@@ -474,6 +532,35 @@ public class EmployeeDAO {
         try {
             conn = Connect.getInstance().getConnection();
             String sql = "UPDATE employee e SET e.department_id = NULL, e.manager_id = NULL WHERE e.employee_id = "+id+";";
+            prst=conn.prepareStatement(sql);
+            prst.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            if(prst != null) {
+                try {
+                    prst.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        }
+    }
+
+    public static boolean goBackToWork(int id) {
+        Connection conn = null;
+        PreparedStatement prst = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            String sql = "UPDATE employee e SET e.isDelete = 1 WHERE e.employee_id = "+id+";";
             prst=conn.prepareStatement(sql);
             prst.executeUpdate();
             return true;

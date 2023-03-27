@@ -393,6 +393,7 @@ public class EditEmployee extends javax.swing.JDialog {
         txtIDEmployee.setText(String.valueOf(s.getEmployee_id()));
         txtIDEmployee.setEditable(false);
         txtEmployeeCode.setText(s.getEmployee_code());
+        txtEmployeeCode.setEditable(false);
         txtEmployeeName.setText(s.getEmployee_name());
         txtDateOfBirth.setText(String.valueOf(s.getDate_of_birth()));
         txtGender.setText(s.getGender());
