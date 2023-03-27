@@ -14,7 +14,7 @@ public class DepartmentDAO {
         PreparedStatement prst = null;
         try {
             conn = Connect.getConnection();
-            String sql = "INSERT INTO department(department_code, department_name) VALUES (?, ?)";
+            String sql = "INSERT INTO department(department_code, department_name ,isDeleteDep) VALUES (?, ?,1)";
             prst = conn.prepareStatement(sql);
             prst.setString(1, department.getDepartment_code());
             prst.setString(2, department.getDepartment_name());

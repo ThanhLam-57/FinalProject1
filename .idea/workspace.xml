@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e27f7a4d-5694-4b8d-870f-ed7233cc1d4f" name="Changes" comment="oke">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Service/Validation/GetTax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/Validation/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/Validation/Validate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/AddEmployee.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/AddEmployee.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/AddEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/AddEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/EditEmployee.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EditEmployee.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/EditEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EditEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/DepartmentDAO/DepartmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/DepartmentDAO/DepartmentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/HomeFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +92,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HomeFrame" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.LoginFrame" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679894631076</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="oke">
+      <created>1679900935245</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679900935245</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,13 +175,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/View/HomeFrame.java</url>
-          <line>552</line>
+          <line>562</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/View/AddEmployee.java</url>
           <line>220</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java</url>
+          <line>277</line>
+          <properties class="DAO.EmployeeDAO.EmployeeDAO" method="deleteEmployee">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
