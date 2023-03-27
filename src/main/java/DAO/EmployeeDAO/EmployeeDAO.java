@@ -16,7 +16,7 @@ public class EmployeeDAO {
         try {
             conn = Connect.getInstance().getConnection();
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM employee";
+            String sql = "SELECT * FROM employee WHERE isDelete != 0;";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 Employees employee = new Employees();
@@ -39,13 +39,13 @@ public class EmployeeDAO {
         return employees;
     }
 
-    public static List<Employees> getEmployeeByDepartment(int id){
+    public static List<Employees> getEmployeeByDepartment(int id, int isDelete) {
         List<Employees> employees = new ArrayList<>();
         Connection conn = null;
         try {
             conn = Connect.getInstance().getConnection();
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM employee e WHERE e.department_id = " + id + ";";
+            String sql = "SELECT * FROM employee WHERE department_id = " + id + " AND isDelete = " + isDelete + ";" ;
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 Employees employee = new Employees();
@@ -119,8 +119,8 @@ public class EmployeeDAO {
         PreparedStatement prst = null;
         try {
             conn = Connect.getInstance().getConnection();
-            String sql = "INSERT INTO employee(employee_code,employee_name,date_of_birth,gender,address,phone,email,salary,department_id)\n" +
-                    "VALUES(?,?,?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO employee(employee_code,employee_name,date_of_birth,gender,address,phone,email,salary,department_id,isDelete)\n" +
+                    "VALUES(?,?,?,?,?,?,?,?,?,?);";
             prst=conn.prepareStatement(sql);
             prst.setString(1,employee.getEmployee_code());
             prst.setString(2,employee.getEmployee_name());
@@ -136,13 +136,12 @@ public class EmployeeDAO {
             } else {
                 prst.setInt(8,employee.getSalary());
             }
-//            prst.setInt(8,employee.getSalary());
             if (employee.getDepartment_id() == 0){
                 prst.setNull(9, Types.INTEGER);
             } else {
                 prst.setInt(9,employee.getDepartment_id());
             }
-//            prst.setInt(9,employee.getDepartment_id());
+            prst.setInt(10,1);
             prst.executeUpdate();
             return true;
         } catch (Exception ex) {
@@ -217,12 +216,13 @@ public class EmployeeDAO {
     }
 
     //Create method to delete employee
+    //done
     public static boolean deleteEmployee(int id) {
         Connection conn = null;
         PreparedStatement prst = null;
         try {
             conn = Connect.getInstance().getConnection();
-            String sql = "DELETE FROM employee WHERE employee_id = ?";
+            String sql = "UPDATE employee e SET e.isDelete = 0, e.manager_id = NULL WHERE e.employee_id = ?;";
             prst = conn.prepareStatement(sql);
             prst.setInt(1, id);
             prst.executeUpdate();
@@ -359,6 +359,7 @@ public class EmployeeDAO {
         return employees;
     }
 
+    //Làm lại
     public static boolean transferEmployeeToManager(int employeeID){
         Connection conn = null;
         PreparedStatement prst = null;
@@ -402,6 +403,98 @@ public class EmployeeDAO {
             throw new RuntimeException(e);
         }
         return false;
+    }
+
+    public static void transferEmployee(int id, int newDepartmentId){
+        Connection conn = null;
+        PreparedStatement prst = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            String sql = "UPDATE employee e SET e.department_id = "+newDepartmentId+",e.isDelete = 0, e.manager_id = NULL WHERE e.employee_id = "+id+";";
+            prst=conn.prepareStatement(sql);
+            prst.executeUpdate();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            if(prst != null) {
+                try {
+                    prst.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        }
+    }
+
+    public static  boolean updateEmployeePromotion(int id, int DepartmentId){
+        Connection conn = null;
+        PreparedStatement prst = null;
+        PreparedStatement prst1 = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            String sql = "UPDATE employee e SET e.manager_id = NULL WHERE e.employee_id = (SELECT e.employee_id FROM employee e WHERE e.department_id = "+DepartmentId+" AND e.manager_id IS NOT NULL);";
+            String sql1 = "UPDATE employee e SET e.manager_id = e.employee_id WHERE e.employee_id = "+id+";";
+            prst=conn.prepareStatement(sql);
+            prst1=conn.prepareStatement(sql1);
+            prst.executeUpdate();
+            prst1.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            if(prst != null) {
+                try {
+                    prst.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        }
+    }
+
+
+    //Xoá nhân viên khỏi phòng ban
+    public static boolean updateEmployeeDelete(int id){
+        Connection conn = null;
+        PreparedStatement prst = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            String sql = "UPDATE employee e SET e.department_id = NULL, e.manager_id = NULL WHERE e.employee_id = "+id+";";
+            prst=conn.prepareStatement(sql);
+            prst.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            if(prst != null) {
+                try {
+                    prst.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        }
     }
 
 }

@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e27f7a4d-5694-4b8d-870f-ed7233cc1d4f" name="Changes" comment="oke">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/EditEmployee.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EditEmployee.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/EditEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EditEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/HomeFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginFrame.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.LoginFrame">
+  <component name="RunManager" selected="Application.HomeFrame">
     <configuration name="HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="View.HomeFrame" />
       <module name="FinalProject1" />
@@ -84,8 +84,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginFrame" />
         <item itemvalue="Application.HomeFrame" />
+        <item itemvalue="Application.LoginFrame" />
       </list>
     </recent_temporary>
   </component>
