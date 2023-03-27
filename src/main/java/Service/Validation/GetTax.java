@@ -1,6 +1,12 @@
 package Service.Validation;
 
 public class GetTax {
+    /**
+    *@author:
+    *@since:
+    *@description:
+    *@return:Lương sau thuế
+    */
     public static double getTax(double salary) {
 
         double salaryToTax = salary - 11000000;
@@ -26,7 +32,6 @@ public class GetTax {
         } else if ( salaryToTax <= 32000000) {
             return getTaxSalary(18000000) +(salaryToTax -18000000)* 0.2;
         } else if (salaryToTax <= 52000000) {
-
             return getTaxSalary(32000000)+( salaryToTax -32000000) * 0.25;
         } else if ( salaryToTax <= 80000000) {
             return getTaxSalary(52000000)+ (salaryToTax -52000000) * 0.3;
