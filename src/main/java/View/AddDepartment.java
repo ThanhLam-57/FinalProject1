@@ -144,12 +144,20 @@ public class AddDepartment extends javax.swing.JDialog {
             String DepartmentCode = txtDepartmentCode.getText();
             String DepartmentName = txtDepartmentName.getText();
             boolean isOK = true;
-            if (validateNotNull(DepartmentName) == false) {
+            if (validateNotNull(DepartmentCode) == false) {
                 JOptionPane.showMessageDialog(rootPane, "Mã phòng ban không được để trống");
+                isOK = false;
+            }
+            if (departmentDAO.checkDepartmentCode(DepartmentCode.trim()) == false) {
+                JOptionPane.showMessageDialog(rootPane, "Mã phòng ban đã tồn tại");
                 isOK = false;
             }
             if(validateNotNull(DepartmentName) == false){
                 JOptionPane.showMessageDialog(rootPane, "Tên phòng ban không được để trống");
+                isOK = false;
+            }
+            if (departmentDAO.checkDepartmentName(DepartmentName.trim()) == false) {
+                JOptionPane.showMessageDialog(rootPane, "Tên phòng ban đã tồn tại");
                 isOK = false;
             }
             

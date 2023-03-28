@@ -233,4 +233,76 @@ public class DepartmentDAO {
             }
         }
     }
+
+    public static boolean checkDepartmentCode(String departmentCode) {
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM department s WHERE s.department_code ='" + departmentCode + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+//            Department d = null;
+//            while(rs.next()) {
+//                d = new Department();
+//                d.setDepartment_id(rs.getInt("department_id"));
+//                d.setDepartment_code(rs.getString("department_code"));
+//                d.setDepartment_name(rs.getString("department_name"));
+//                d = new Department(rs.getInt("department_id"), rs.getString("department_code"), rs.getString("department_name"));
+//            }
+            if(rs.next()){
+                return false;
+            }
+            return false;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+    public static boolean checkDepartmentName(String departmentName) {
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM department s WHERE s.department_name ='" + departmentName + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                return false;
+            }
+            return false;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
 }
