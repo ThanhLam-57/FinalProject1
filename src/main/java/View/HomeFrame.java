@@ -114,6 +114,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         jPanel2 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnLoadDataEmp1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -459,13 +460,25 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         ));
         jScrollPane4.setViewportView(jTable1);
 
+        btnLoadDataEmp1.setText("Load lại dữ liệu");
+        btnLoadDataEmp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadDataEmp1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(419, 419, 419)
+                        .addComponent(btnLoadDataEmp1)))
                 .addContainerGap(193, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -473,7 +486,9 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addComponent(btnLoadDataEmp1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         transferEmployee.addTab("Thống kê", jPanel2);
@@ -658,6 +673,11 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             this.showData(employeeDAO.getAllEmployees(), modelTableEmployee);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnLoadDataEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadDataEmp1ActionPerformed
+        // TODO add your handling code here:
+        this.showOptionlistStatistics(StatisticsDAO.getStatistics(), modalTabbleTK);
+    }//GEN-LAST:event_btnLoadDataEmp1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         //Check xem có thuốc danh sách nghỉ việc hay không
@@ -867,6 +887,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     private javax.swing.JButton btnEditDepartment;
     private javax.swing.JButton btnLoadDataDepartment;
     private javax.swing.JButton btnLoadDataEmp;
+    private javax.swing.JButton btnLoadDataEmp1;
     private javax.swing.JButton btnOptionEdit;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbbDepartment;

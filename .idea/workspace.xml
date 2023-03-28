@@ -5,30 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e27f7a4d-5694-4b8d-870f-ed7233cc1d4f" name="Changes" comment="oke">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/StatisticsDAO/StatisticsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Modal/Statistics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Service/Validation/GetTaxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Test/ValidateTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/DepartmentDAO/DepartmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/DepartmentDAO/DepartmentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/EmployeeService/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/EmployeeService/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/LoginService/LogInService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/LoginService/LogInService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/Validation/FormatValidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/Validation/FormatValidate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/Validation/GetTax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/Validation/GetTax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/Validation/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/Validation/Validate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/AddDepartment.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/AddDepartment.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/AddDepartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/AddDepartment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/AddEmployee.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/AddEmployee.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/AddEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/AddEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/EditDepartment.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EditDepartment.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/EditDepartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EditDepartment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/EditEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/EditEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/HomeFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Service/Validation/GetTaxTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Service/Validation/GetTaxTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,19 +46,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -88,9 +70,9 @@
       <recent name="Test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoginFrame">
-    <configuration name="LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.LoginFrame" />
+  <component name="RunManager" selected="Application.HomeFrame">
+    <configuration name="HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.HomeFrame" />
       <module name="FinalProject1" />
       <extension name="coverage">
         <pattern>
@@ -102,9 +84,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="GetTaxTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FinalProject1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Service.Validation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Service.Validation" />
+      <option name="MAIN_CLASS_NAME" value="Service.Validation.GetTaxTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,6 +115,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GetTaxTest.getTaxSalary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Service.Validation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Service.Validation" />
+      <option name="MAIN_CLASS_NAME" value="Service.Validation.GetTaxTest" />
+      <option name="METHOD_NAME" value="getTaxSalary" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ValidateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FinalProject1" />
       <extension name="coverage">
@@ -140,29 +146,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ValidateTest.validateEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FinalProject1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.ValidateTest" />
-      <option name="METHOD_NAME" value="validateEmail" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginFrame" />
+        <item itemvalue="Application.HomeFrame" />
+        <item itemvalue="JUnit.GetTaxTest.getTaxSalary" />
+        <item itemvalue="JUnit.GetTaxTest" />
         <item itemvalue="JUnit.GetTaxTest.getTax" />
-        <item itemvalue="JUnit.ValidateTest.validateEmail" />
         <item itemvalue="JUnit.ValidateTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679927121606</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="oke">
+      <created>1679977833868</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679977833868</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

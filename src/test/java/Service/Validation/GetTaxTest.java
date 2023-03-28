@@ -16,8 +16,8 @@ public class GetTaxTest {
 
     @Test
     public void getTaxSalary() {
-        double salaryToTax = 10000000;
-        double expected = 500000;
-        double result = Service.Validation.GetTax.getTaxSalary(salaryToTax);
+        long salaryToTax = 10000000;
+        long expected = 500000;
+        long result = (long) GetTax.getTaxSalary(salaryToTax);
     }
 }

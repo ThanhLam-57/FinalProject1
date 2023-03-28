@@ -291,7 +291,10 @@ public class EditEmployee extends javax.swing.JDialog {
                 isOK = false;
             }
             Integer salary1 = formatInteger(salary);
-            Integer employeeDepartmentId = formatInteger(departmentEmp);
+            Integer employeeDepartmentId = 0;
+            if (departmentDAO.getDepartmentByName(departmentEmp) != null) {
+                employeeDepartmentId = departmentDAO.getDepartmentByName(departmentEmp).getDepartment_id();
+            }
             Integer employeeID = Integer.parseInt(empID);
             if (isOK) {
                 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");

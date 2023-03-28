@@ -197,4 +197,40 @@ public class DepartmentDAO {
         return false;
     }
 
+    public static Department getDepartmentByName(String departmentEmp) {
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM department s WHERE s.department_name ='" + departmentEmp + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            Department d = null;
+            while(rs.next()) {
+                d = new Department();
+                d.setDepartment_id(rs.getInt("department_id"));
+                d.setDepartment_code(rs.getString("department_code"));
+                d.setDepartment_name(rs.getString("department_name"));
+                d = new Department(rs.getInt("department_id"), rs.getString("department_code"), rs.getString("department_name"));
+            }
+            return d;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            if(stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
 }
