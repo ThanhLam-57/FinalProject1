@@ -493,16 +493,23 @@ public class EmployeeDAO {
 
     public static  boolean updateEmployeePromotion(int id, int DepartmentId){
         Connection conn = null;
-        PreparedStatement prst = null;
-        PreparedStatement prst1 = null;
+//        PreparedStatement prst = null;
+//        PreparedStatement prst1 = null;
+        CallableStatement prst = null;
         try {
-            conn = Connect.getInstance().getConnection();
-            String sql = "UPDATE employee e SET e.manager_id = NULL WHERE e.employee_id = (SELECT e.employee_id FROM employee e WHERE e.department_id = "+DepartmentId+" AND e.manager_id IS NOT NULL);";
-            String sql1 = "UPDATE employee e SET e.manager_id = e.employee_id WHERE e.employee_id = "+id+";";
-            prst=conn.prepareStatement(sql);
-            prst1=conn.prepareStatement(sql1);
+//            conn = Connect.getInstance().getConnection();
+//            String sql = "UPDATE employee e SET e.manager_id = NULL WHERE e.employee_id = (SELECT e.employee_id FROM employee e WHERE e.department_id = "+DepartmentId+" AND e.manager_id IS NOT NULL);";
+//            String sql1 = "UPDATE employee e SET e.manager_id = e.employee_id WHERE e.employee_id = "+id+";";
+//            prst=conn.prepareStatement(sql);
+//            prst1=conn.prepareStatement(sql1);
+//            prst.executeUpdate();
+//            prst1.executeUpdate();
+            conn = Connect.getConnection();
+            String sql = "{call update_emp_Promo(?,?)}";
+            prst = conn.prepareCall(sql);
+            prst.setInt(1, DepartmentId);
+            prst.setInt(2,id);
             prst.executeUpdate();
-            prst1.executeUpdate();
             return true;
         } catch (Exception ex) {
             throw new RuntimeException(ex);
@@ -523,7 +530,6 @@ public class EmployeeDAO {
             }
         }
     }
-
 
     //Xoá nhân viên khỏi phòng ban
     public static boolean updateEmployeeDelete(int id){

@@ -710,7 +710,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         if(index == -1){
             JOptionPane.showMessageDialog(rootPane, "Chọn phòng ban để xoá");
         }else{
-            int id = departments.get(index).getDepartment_id();
+            int id = departmentDAO.getAllDepartment().get(index).getDepartment_id();
             int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xoá phòng ban này không?");
             if(result == JOptionPane.YES_OPTION){
                 if(departmentDAO.deleteDepartment(id)){
