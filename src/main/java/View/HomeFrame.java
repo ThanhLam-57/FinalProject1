@@ -711,7 +711,7 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             JOptionPane.showMessageDialog(rootPane, "Chọn phòng ban để xoá");
         }else{
             int id = departmentDAO.getAllDepartment().get(index).getDepartment_id();
-            int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xoá phòng ban này không?");
+            int result = JOptionPane.showConfirmDialog(rootPane, "Tất cả nhân viên của phòng ban trở thành chưa có phòng ban. Bạn có muốn xoá phòng ban này không?");
             if(result == JOptionPane.YES_OPTION){
                 if(departmentDAO.deleteDepartment(id)){
                     JOptionPane.showMessageDialog(rootPane, "Xoá thành công");
@@ -733,6 +733,19 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         }else{
             int id = listTransferEmployee.get(index).getEmployee_id();
             int idDepartment = listTransferEmployee.get(index).getDepartment_id();
+            if (listTransferEmployee.get(index).getNamager_id() != 0){
+                int res = JOptionPane.showConfirmDialog(rootPane, "Nhân viên này là quản lý");
+                if (res == JOptionPane.YES_OPTION){
+                    if(employeeDAO.updateEmployeeDelete(id)){
+                        JOptionPane.showMessageDialog(rootPane, "Xoá thành công");
+                        this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(idDepartment, 1), modelTableTrabsferEmployee);
+                        listTransferEmployee = employeeDAO.getEmployeeByDepartment(idDepartment, 1);
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Xoá thất bại");
+                    }
+                }
+                return;
+            }
             int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xoá nhân viên này không?");
             if(result == JOptionPane.YES_OPTION){
                 if(employeeDAO.updateEmployeeDelete(id)){
@@ -759,6 +772,10 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             }
             if (listTransferEmployee.get(index).getDepartment_id() == 0){
                 JOptionPane.showMessageDialog(rootPane, "Nhân viên này chưa có phòng ban");
+                return;
+            }
+            if (listTransferEmployee.get(index).getNamager_id() != 0){
+                JOptionPane.showMessageDialog(rootPane, "Nhân viên này là quản lý");
                 return;
             }
             int id = listTransferEmployee.get(index).getEmployee_id();
@@ -795,6 +812,15 @@ public class HomeFrame extends javax.swing.JFrame implements View{
                 if(idDepartment == idNewDepartment){
                     JOptionPane.showMessageDialog(rootPane, "Nhân viên đã thuộc phòng ban này");
                 }else{
+                    if(listTransferEmployee.get(index).getNamager_id() != 0){
+                        int res = JOptionPane.showConfirmDialog(rootPane, "Nhân viên này là quản lý");
+                        if (res == JOptionPane.YES_OPTION){
+                            JOptionPane.showMessageDialog(rootPane, "Chuyển nhân viên thành công");
+                            employeeDAO.transferEmployee(id, idNewDepartment);
+                            this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(idNewDepartment,1), modelTableTrabsferEmployee);
+                        }
+                        return;
+                    }
                     int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc chuyển nhân viên này không?");
                     if(result == JOptionPane.YES_OPTION){
                         employeeDAO.transferEmployee(id, idNewDepartment);

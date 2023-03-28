@@ -7,6 +7,7 @@
     <list default="true" id="e27f7a4d-5694-4b8d-870f-ed7233cc1d4f" name="Changes" comment="oke">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/AddEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/AddEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/HomeFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,9 +68,22 @@
       <recent name="Test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HomeFrame">
+  <component name="RunManager" selected="Application.LoginFrame">
     <configuration name="HomeFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="View.HomeFrame" />
+      <module name="FinalProject1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.LoginFrame" />
       <module name="FinalProject1" />
       <extension name="coverage">
         <pattern>
@@ -128,28 +142,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ValidateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FinalProject1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.ValidateTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LoginFrame" />
         <item itemvalue="Application.HomeFrame" />
         <item itemvalue="JUnit.GetTaxTest.getTaxSalary" />
         <item itemvalue="JUnit.GetTaxTest" />
         <item itemvalue="JUnit.GetTaxTest.getTax" />
-        <item itemvalue="JUnit.ValidateTest" />
       </list>
     </recent_temporary>
   </component>
@@ -246,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679987901222</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="oke">
+      <created>1679989994190</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679989994190</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -259,22 +265,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/View/HomeFrame.java</url>
-          <line>748</line>
+          <line>761</line>
           <properties class="View.HomeFrame" method="jButton3ActionPerformed">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/View/HomeFrame.java</url>
+          <line>727</line>
+          <properties class="View.HomeFrame" method="jButton2ActionPerformed">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/View/AddEmployee.java</url>
           <line>242</line>
           <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/View/HomeFrame.java</url>
-          <line>708</line>
-          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -118,7 +118,7 @@ public class AddEmployee extends javax.swing.JDialog {
 
         jLabel2.setText("Tên nhân viên(*)");
 
-        jLabel3.setText("Ngày sinh(*)");
+        jLabel3.setText("Ngày sinh(YYYY-MM-DD) (*)");
 
         jLabel4.setText("Giới tính");
 
