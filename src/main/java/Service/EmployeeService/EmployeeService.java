@@ -78,6 +78,12 @@ public class EmployeeService implements IEmployeeService {
     }
     public EmployeeDAO employeeDAO;
     //TODO: Create a method to get all employees
+    /**
+    *@author:NTLAM
+    *@since:
+    *@description: phương thức thực hiện lấy danh sách nhân viên
+    *@return: danh sách nhân viên
+    */
     @Override
     public void getAllEmployees() {
         List<Employees>  employees= employeeDAO.getAllEmployees();
@@ -85,7 +91,14 @@ public class EmployeeService implements IEmployeeService {
             System.out.println(employees.get(i).toString());
         }
     }
+
     //TODO: Create a method to get an employee by id
+    /**
+    *@author:NTLAM
+    *@since:
+    *@description: phương thức thực hiện lấy nhân viên theo mã
+    *@return: nhân viên
+    */
     @Override
     public void getEmployeeByID(){
         System.out.println("Enter employee id: ");
@@ -97,7 +110,15 @@ public class EmployeeService implements IEmployeeService {
             System.out.println(employees.toString());
         }
     }
+
+
     //TODO: Create a method to update an employee
+    /**
+    *@author:
+    *@since:
+    *@description:
+    *@return: nhân viên
+    */
     @Override
     public void updateEmployee() throws ParseException {
         System.out.println("Enter employee id: ");

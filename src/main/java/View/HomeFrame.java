@@ -6,8 +6,10 @@ package View;
 
 import DAO.DepartmentDAO.DepartmentDAO;
 import DAO.EmployeeDAO.EmployeeDAO;
+import DAO.StatisticsDAO.StatisticsDAO;
 import Modal.Department;
 import Modal.Employees;
+import Modal.Statistics;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -34,9 +36,13 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     List<String> listDepartment = new ArrayList<>();
 
     List<Employees> listTransferEmployee = new ArrayList<>();
+
+    List<Statistics> listStatistics = StatisticsDAO.getStatistics();
     private DefaultTableModel modelTableEmployee;
     private DefaultTableModel modelTableDepartment;
     private DefaultTableModel modelTableTrabsferEmployee;
+
+    private DefaultTableModel modalTabbleTK;
     public HomeFrame() {
         initComponents();
         showCbbDepartment();
@@ -50,9 +56,14 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         modelTableDepartment = (DefaultTableModel) tblDepartment.getModel();
         this.showDataDepartment(departments, modelTableDepartment);
 
+        modalTabbleTK = (DefaultTableModel) jTable1.getModel();
+        this.showOptionlistStatistics(listStatistics, modalTabbleTK);
+
         modelTableTrabsferEmployee = (DefaultTableModel) tblTransferEmployee.getModel();
         this.showOptionTransferEmp(EmployeeDAO.getEmployeeByDepartment(0,1), modelTableTrabsferEmployee);
     }
+
+
     public void AddEmployee(){
         this.showData(employeeses, modelTableEmployee);
     }
@@ -99,7 +110,10 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        lbHeader = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -361,6 +375,9 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             }
         });
 
+        lbHeader.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbHeader.setPreferredSize(new java.awt.Dimension(300, 40));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -389,18 +406,24 @@ public class HomeFrame extends javax.swing.JFrame implements View{
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(261, 261, 261))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(lbHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonTransferEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -423,15 +446,34 @@ public class HomeFrame extends javax.swing.JFrame implements View{
 
         transferEmployee.addTab("Nhân sự", jPanel1);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Phòng ban", "Số lượng nhân viên", "Quản lý", "Nhân viên lương cao nhất", "Lương cao nhất"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1116, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(296, Short.MAX_VALUE))
         );
 
         transferEmployee.addTab("Thống kê", jPanel2);
@@ -509,10 +551,12 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         if (selectValue.equals("Tất cả")) {
             this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(0,isDelete), modelTableTrabsferEmployee);
             listTransferEmployee = employeeDAO.getEmployeeByDepartment(0,isDelete);
+            lbHeader.setText("Danh sách nhân viên hiện tại");
         }
         if(index>= 1){
             this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(departments.get(index-1).getDepartment_id(),isDelete), modelTableTrabsferEmployee);
             listTransferEmployee = employeeDAO.getEmployeeByDepartment(departments.get(index-1).getDepartment_id(),isDelete);
+            lbHeader.setText("Danh sách nhân viên " + departments.get(index-1).getDepartment_name());
         }
     }
 
@@ -521,30 +565,39 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         if (indexOptionEMp == 0) {
             this.showOptionTransferEmp(employeeDAO.getAllEmployees(), modelTableTrabsferEmployee);
             listTransferEmployee = employeeDAO.getAllEmployees();
+            lbHeader.setText("Danh sách nhân viên hiện tại");
         } else if (indexOptionEMp == 1) {
             this.showOptionTransferEmp(employeeDAO.getAllEmployeesDelete(), modelTableTrabsferEmployee);
             listTransferEmployee = employeeDAO.getAllEmployeesDelete();
+            lbHeader.setText("Danh sách nhân viên đã xóa");
         } else if (indexOptionEMp == 2) {
             this.showOptionTransferEmp(employeeDAO.getAllEmployeesNotDep(), modelTableTrabsferEmployee);
             listTransferEmployee = employeeDAO.getAllEmployeesNotDep();
+            lbHeader.setText("Danh sách nhân viên chưa phân bộ phận");
         }
     }
 
-    private void btnLoadDataDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadDataDepartmentActionPerformed
+    private void btnLoadDataDepartmentActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         this.showDataDepartment(departmentDAO.getAllDepartment(), modelTableDepartment);
-    }//GEN-LAST:event_btnLoadDataDepartmentActionPerformed
+    }
 
-    private void btnAddDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDepartmentActionPerformed
+    private void btnAddDepartmentActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         new AddDepartment(this, rootPaneCheckingEnabled).setVisible(true);
         this.showDataDepartment(departmentDAO.getAllDepartment(), modelTableDepartment);
-    }//GEN-LAST:event_btnAddDepartmentActionPerformed
+        cbbDepartment.addItem(departmentDAO.getAllDepartment().get(departmentDAO.getAllDepartment().size()-1).getDepartment_name());
+        cbbDepartment1.addItem(departmentDAO.getAllDepartment().get(departmentDAO.getAllDepartment().size()-1).getDepartment_name());
+        cbbDepartment2.addItem(departmentDAO.getAllDepartment().get(departmentDAO.getAllDepartment().size()-1).getDepartment_name());
 
-    private void btnLoadDataEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadDataEmpActionPerformed
+    }
+
+    private void btnLoadDataEmpActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         this.showData(employeeDAO.getAllEmployees(), modelTableEmployee);
-    }//GEN-LAST:event_btnLoadDataEmpActionPerformed
+        cbbDepartment.setSelectedItem("Tất cả");
+        txtSearch.setText("");
+    }
 
     private void BtnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddEmployeeActionPerformed
        new AddEmployee(this,rootPaneCheckingEnabled).setVisible(true);
@@ -564,11 +617,11 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         }
     }                                             
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         String keyword = txtSearch.getText();
         this.showData(employeeDAO.searchEmployee(keyword), modelTableEmployee);
-    }//GEN-LAST:event_btnSearchActionPerformed
+    }
 
     private void cbbDepartment2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbDepartment2ActionPerformed
         // TODO add your handling code here:
@@ -607,36 +660,25 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-        // set isDelete = 1 with employee_id
-//        int index = tblTransferEmployee.getSelectedRow();
-//        if(index == -1){
-//            JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên");
-//        }else{
-//            int id = listTransferEmployee.get(index).getEmployee_id();
-//            int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn cho nhân viên này đi làm không?");
-//            if(result == JOptionPane.YES_OPTION){
-//                if(employeeDAO.goBackToWork(id) == true){
-//                    JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
-//                    this.showData(employeeDAO.getAllEmployees(), modelTableEmployee);
-//                }else{
-//                    JOptionPane.showMessageDialog(rootPane, "Thêm thất bại");
-//                }
-//            }
-//        }
-
-        //go back to work employee
+        //Check xem có thuốc danh sách nghỉ việc hay không
+        //Nếu có thì cho nó đi làm lại
+        //Nếu không thì hiển thị thông báo "Nhân viên này chưa nghỉ việc"
         int index = tblTransferEmployee.getSelectedRow();
-        if(index == -1){
-            JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên");
-        }else{
-            int id = listTransferEmployee.get(index).getEmployee_id();
-            int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn cho nhân viên này đi làm không?");
-            if(result == JOptionPane.YES_OPTION){
-                if(employeeDAO.goBackToWork(id) == true){
-                    JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
-                    this.showData(employeeDAO.getAllEmployees(), modelTableEmployee);
-                }else{
-                    JOptionPane.showMessageDialog(rootPane, "Thêm thất bại");
+        if (employeeDAO.getEmployeesIdDelete(listTransferEmployee.get(index).getEmployee_id()) == false){
+            JOptionPane.showMessageDialog(rootPane, "Nhân viên này chưa nghỉ việc");
+        }else {
+            if(index == -1){
+                JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên");
+            }else{
+                int id = listTransferEmployee.get(index).getEmployee_id();
+                int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn cho nhân viên này đi làm không?");
+                if(result == JOptionPane.YES_OPTION){
+                    if(employeeDAO.goBackToWork(id) == true){
+                        JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+                        this.showData(employeeDAO.getAllEmployees(), modelTableEmployee);
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Thêm thất bại");
+                    }
                 }
             }
         }
@@ -688,17 +730,17 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         // TODO add your handling code here:
         //employee promotion
         int index = tblTransferEmployee.getSelectedRow();
-        if (listEmployeeisDelete.contains(listTransferEmployee.get(index)) == false){
-            JOptionPane.showMessageDialog(rootPane, "Không còn là nhân viên");
-            return;
-        }
-        if (listTransferEmployee.get(index).getDepartment_id() == 0){
-            JOptionPane.showMessageDialog(rootPane, "Nhân viên này chưa có phòng ban");
-            return;
-        }
         if(index == -1){
             JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên để thăng chức");
         }else{
+            if (employeeDAO.getEmployeesIdDelete(listTransferEmployee.get(index).getEmployee_id()) == true){
+                JOptionPane.showMessageDialog(rootPane, "Không còn là nhân viên");
+                return;
+            }
+            if (listTransferEmployee.get(index).getDepartment_id() == 0){
+                JOptionPane.showMessageDialog(rootPane, "Nhân viên này chưa có phòng ban");
+                return;
+            }
             int id = listTransferEmployee.get(index).getEmployee_id();
             int idDepartment = listTransferEmployee.get(index).getDepartment_id();
             int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn thăng chức cho nhân viên này không?");
@@ -722,17 +764,22 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         if(index == -1){
             JOptionPane.showMessageDialog(rootPane, "Chọn nhân viên để chuyển");
         }else{
-            int id = listTransferEmployee.get(index).getEmployee_id();
-            int idDepartment = listTransferEmployee.get(index).getDepartment_id();
-            //CÒn sửa lại
-            int idNewDepartment = departments.get(indexOptionEMp).getDepartment_id() ;
-            if(idDepartment == idNewDepartment){
-                JOptionPane.showMessageDialog(rootPane, "Nhân viên đã thuộc phòng ban này");
-            }else{
-                int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc chuyển nhân viên này không?");
-                if(result == JOptionPane.YES_OPTION){
-                    employeeDAO.transferEmployee(id, idNewDepartment);
-                    this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(idNewDepartment,1), modelTableTrabsferEmployee);
+            if(employeeDAO.getEmployeesIdDelete(listTransferEmployee.get(index).getEmployee_id()) == true){
+                JOptionPane.showMessageDialog(rootPane, "Không còn là nhân viên");
+                return;
+            }else {
+                int id = listTransferEmployee.get(index).getEmployee_id();
+                int idDepartment = listTransferEmployee.get(index).getDepartment_id();
+                //CÒn sửa lại
+                int idNewDepartment = departments.get(indexOptionEMp).getDepartment_id() ;
+                if(idDepartment == idNewDepartment){
+                    JOptionPane.showMessageDialog(rootPane, "Nhân viên đã thuộc phòng ban này");
+                }else{
+                    int result = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc chuyển nhân viên này không?");
+                    if(result == JOptionPane.YES_OPTION){
+                        employeeDAO.transferEmployee(id, idNewDepartment);
+                        this.showOptionTransferEmp(employeeDAO.getEmployeeByDepartment(idNewDepartment,1), modelTableTrabsferEmployee);
+                    }
                 }
             }
         }
@@ -847,7 +894,10 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lbHeader;
     private javax.swing.JTable tblDepartment;
     private javax.swing.JTable tblEmployee;
     private javax.swing.JTable tblTransferEmployee;
@@ -907,8 +957,16 @@ public class HomeFrame extends javax.swing.JFrame implements View{
             }
         }
     }
+    private void showOptionlistStatistics(List<Statistics> listStatistics, DefaultTableModel model) {
+        model.setRowCount(0);
+        for (Statistics statistics : listStatistics) {
+            model.addRow(new Object[]{
+                statistics.getDepartment_name(),statistics.getEmployee_count(),statistics.getManager_name(),statistics.getEmployee_name_max_salary(),statistics.getSalary_max()
+            });
+        }
+    }
     private void showCbbDepartment() {
-        List<Department> departments = departmentDAO.getAllDepartment();
+        List<Department> departments =  departmentDAO.getAllDepartment();
         cbbDepartment.addItem("Chọn phòng ban");
         cbbDepartment.addItem("Tất cả");
         for (Department department : departments) {
@@ -916,14 +974,14 @@ public class HomeFrame extends javax.swing.JFrame implements View{
         }
     }
     private void showCbbDepartment1() {
-        List<Department> departments = departmentDAO.getAllDepartment();
+        List<Department> departments =  departmentDAO.getAllDepartment();
         cbbDepartment1.addItem("Chọn phòng ban");
         for (Department department : departments) {
             cbbDepartment1.addItem(department.getDepartment_name());
         }
     }
     private void showCbbDepartment2() {
-        List<Department> departments = departmentDAO.getAllDepartment();
+        List<Department> departments =  departmentDAO.getAllDepartment();
         for (Department department : departments) {
             cbbDepartment2.addItem(department.getDepartment_name());
         }

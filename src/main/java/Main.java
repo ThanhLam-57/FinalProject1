@@ -1,3 +1,5 @@
+import DAO.StatisticsDAO.StatisticsDAO;
+import Modal.Statistics;
 import Service.DepartmentService.DepartmentService;
 import Service.EmployeeService.EmployeeService;
 import Service.LoginService.LogInService;
@@ -8,6 +10,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
+        StatisticsDAO statisticsDAO = new StatisticsDAO();
+        statisticsDAO.getStatistics();
         LogInService logInService = new LogInService();
         Scanner scanner = new Scanner(System.in);
         if (logInService.checkLogin()) {

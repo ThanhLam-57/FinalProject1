@@ -2,10 +2,10 @@ package Service.Validation;
 
 public class GetTax {
     /**
-    *@author:
+    *@author: LÂM
     *@since:
-    *@description:
-    *@return:Lương sau thuế
+    *@description: Phương thức tính thuế thu nhập cá nhân
+    *@return:Lương sau hỗ trợ
     */
     public static double getTax(double salary) {
 
@@ -20,7 +20,7 @@ public class GetTax {
      * @param salaryToTax Tiền thuế
      * @return tiền
      */
-    private static double getTaxSalary(double salaryToTax) {
+    public static double getTaxSalary(double salaryToTax) {
         if (salaryToTax < 0) {
             return 0;
         } else if (salaryToTax <= 5000000 && salaryToTax > 0) {

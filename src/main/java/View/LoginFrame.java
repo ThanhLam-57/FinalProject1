@@ -19,6 +19,7 @@ public class LoginFrame extends javax.swing.JFrame {
     public LogInDAO logInDAO;
     public LoginFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

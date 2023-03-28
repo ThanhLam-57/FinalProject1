@@ -312,7 +312,7 @@ public class EmployeeDAO {
         try {
             conn = Connect.getInstance().getConnection();
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM employee WHERE employee_code LIKE '%"+keyword+"%' OR employee_name LIKE '%"+keyword+"%' OR phone LIKE '%"+keyword+"%' OR email LIKE '%"+keyword+"%';";
+            String sql = "SELECT * FROM (SELECT * FROM employee e WHERE e.isDelete = 1) AS isDel WHERE employee_code LIKE '%"+keyword+"%' OR employee_name LIKE '%"+keyword+"%' OR phone LIKE '%"+keyword+"%' OR email LIKE '%"+keyword+"%' AND isDelete = 1;";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 Employees employee = new Employees();
@@ -584,4 +584,19 @@ public class EmployeeDAO {
         }
     }
 
+    public static boolean getEmployeesIdDelete(int employeeId) {
+        Connection conn = null;
+        try {
+            conn = Connect.getInstance().getConnection();
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM employee WHERE employee_id = "+employeeId+" AND isDelete = 0;";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
 }

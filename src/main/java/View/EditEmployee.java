@@ -4,6 +4,7 @@
  */
 package View;
 
+import DAO.DepartmentDAO.DepartmentDAO;
 import DAO.EmployeeDAO.EmployeeDAO;
 import Modal.Employees;
 
@@ -32,6 +33,7 @@ public class EditEmployee extends javax.swing.JDialog {
      * Creates new form AddEmployee
      */
     EmployeeDAO employeeDAO;
+    DepartmentDAO departmentDAO;
     private HomeFrame homeFrame;
     public EditEmployee(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -400,7 +402,11 @@ public class EditEmployee extends javax.swing.JDialog {
         txtPhone.setText(s.getPhone());
         txtEmail.setText(s.getEmail());
         txtSalary.setText(String.valueOf(s.getSalary()));
-        txtEmpDepartment.setText(String.valueOf(s.getDepartment_id()));
+        if (s.getDepartment_id() == 0) {
+            txtEmpDepartment.setText("");
+        } else {
+            txtEmpDepartment.setText(String.valueOf(departmentDAO.getDepartmentById(s.getDepartment_id()).getDepartment_name()));
+        }
         txtEmpDepartment.setEditable(false);
     }
 }
