@@ -615,7 +615,11 @@ public class HomeFrame extends javax.swing.JFrame implements View{
     }
 
     private void BtnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddEmployeeActionPerformed
-       new AddEmployee(this,rootPaneCheckingEnabled).setVisible(true);
+       //new AddEmployee(this,rootPaneCheckingEnabled).setVisible(true);
+       AddEmployee addEmployee = new AddEmployee(this, rootPaneCheckingEnabled);
+       addEmployee.setEmployeeCode(employeeDAO.getNewEmployeeCode());
+       addEmployee.setVisible(true);
+       this.showData(employeeDAO.getAllEmployees(), modelTableEmployee);
     }//GEN-LAST:event_BtnAddEmployeeActionPerformed
 
     private void btnOptionEditActionPerformed(java.awt.event.ActionEvent evt) {

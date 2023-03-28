@@ -252,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679989994190</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="oke">
+      <created>1680012401025</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680012401025</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -265,7 +272,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/View/HomeFrame.java</url>
-          <line>761</line>
+          <line>765</line>
           <properties class="View.HomeFrame" method="jButton3ActionPerformed">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -274,17 +281,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/View/HomeFrame.java</url>
-          <line>727</line>
+          <line>731</line>
           <properties class="View.HomeFrame" method="jButton2ActionPerformed">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/View/AddEmployee.java</url>
-          <line>242</line>
-          <option name="timeStamp" value="33" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/DAO/EmployeeDAO/EmployeeDAO.java</url>
+          <line>600</line>
+          <properties class="DAO.EmployeeDAO.EmployeeDAO" method="getNewEmployeeCode">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

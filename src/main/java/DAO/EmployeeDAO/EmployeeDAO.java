@@ -596,4 +596,39 @@ public class EmployeeDAO {
         }
         return false;
     }
+
+    //Tự động lấy mã nhân viên mới
+    public static String getNewEmployeeCode(){
+        Connection conn= null;
+        CallableStatement prst = null;
+        try {
+            conn = Connect.getConnection();
+            String sql = "{call get_NewEmployeeCode()}";
+            prst = conn.prepareCall(sql);
+            while (prst.execute()) {
+                ResultSet rs = prst.getResultSet();
+                while (rs.next()) {
+                    return rs.getString(1);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            if(prst != null) {
+                try {
+                    prst.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        }
+        return null;
+    }
 }

@@ -289,6 +289,7 @@ public class AddEmployee extends javax.swing.JDialog {
                 boolean check = employeeDAO.insertEmployee(employees1);
                 if (check == true) {
                     JOptionPane.showMessageDialog(rootPane, "Thêm mới thành công");
+                    this.dispose();
                 }
             }
         } catch (ParseException ex) {
@@ -376,5 +377,9 @@ public class AddEmployee extends javax.swing.JDialog {
         for (Department department : departments) {
             jComboBox1.addItem(department.getDepartment_name());
         }
+    }
+
+    public void setEmployeeCode(String newEmployeeCode) {
+        txtEmployeeCode.setText(newEmployeeCode);
     }
 }
